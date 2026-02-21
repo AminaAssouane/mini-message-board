@@ -7,11 +7,11 @@
     <ul>
         <% messages.forEach((message) => { %>
         <h1>Message : </h1>
-        <div>Text : </div>
+        <h3>Text : </h3>
         <%= message.text %>
-        <div>User : </div>
+        <h3>User : </h3>
             <%= message.user %>
-            <div>Date added :</div>
+            <h3>Date added :</h3>
             <%= message.added %>
 
         <% }); %>
