@@ -4,17 +4,20 @@
     <title>Homepage</title>
   </head>
   <body>
+            <h1><%= title %></h1>
+
     <ul>
         <% messages.forEach((message) => { %>
-        <h1>Message : </h1>
+        <li>
+        <h2>Message : </h2>
         <h3>Text : </h3>
         <%= message.text %>
         <h3>User : </h3>
             <%= message.user %>
             <h3>Date added :</h3>
             <%= message.added %>
-
-        <% }); %>
+        </li>
+        <% })%>
     </ul>  
   </body>
 </html>
