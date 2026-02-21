@@ -1,0 +1,20 @@
+<!-- index.ejs -->
+<html>
+  <head>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <ul>
+        <% messages.forEach((message) => { %>
+        <h1>Message : </h1>
+        <div>Text : </div>
+        <%= message.text %>
+        <div>User : </div>
+            <%= message.user %>
+            <div>Date added :</div>
+            <%= message.added %>
+
+        <% }); %>
+    </ul>  
+  </body>
+</html>
