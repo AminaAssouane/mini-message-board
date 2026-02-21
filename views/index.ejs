@@ -19,6 +19,10 @@
             <%= message.user %>
             <h3>Date added :</h3>
             <%= message.added %>
+        <!-- Open button -->
+        <a href="/messages/<%= message.id %>">
+            <button type="button">Open</button>
+        </a>
         </li>
         <% })%>
     </ul> 
