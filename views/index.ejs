@@ -5,6 +5,9 @@
   </head>
   <body>
             <h1><%= title %></h1>
+    <a href="/new">
+    <button type="button">New Message</button>
+    </a>
 
     <ul>
         <% messages.forEach((message) => { %>
@@ -18,6 +21,6 @@
             <%= message.added %>
         </li>
         <% })%>
-    </ul>  
+    </ul> 
   </body>
 </html>
