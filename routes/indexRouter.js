@@ -25,7 +25,7 @@ indexRouter.post("/new", (req, res) => {
     user: req.body.name,
     added: new Date(),
   });
-  res.end();
+  res.redirect("/");
 });
 
 module.exports = indexRouter;
