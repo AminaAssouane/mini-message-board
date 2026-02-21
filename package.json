@@ -18,6 +18,7 @@
   "homepage": "https://github.com/AminaAssouane/mini-message-board#readme",
   "description": "",
   "dependencies": {
+    "ejs": "^4.0.1",
     "express": "^5.2.1"
   }
 }
