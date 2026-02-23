@@ -1,24 +1,11 @@
 const { Router } = require("express");
-
 const indexRouter = Router();
 
-const messages = [
-  {
-    id: 1,
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    id: 2,
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+const db = require("../db/queries");
 
 // To display the messages
-indexRouter.get("/", (req, res) => {
+indexRouter.get("/", async (req, res) => {
+  const messages = await db.getAllMessages();
   res.render("index", { title: "Mini Messageboard", messages: messages });
 });
 
@@ -35,15 +22,15 @@ indexRouter.get("/messages/:id", (req, res) => {
 });
 
 // To add a new message
-indexRouter.post("/new", (req, res) => {
-  const newId = messages.length ? messages[messages.length - 1].id + 1 : 1;
+indexRouter.post("/new", async (req, res) => {
+  const { name, message } = req.body;
 
-  messages.push({
-    id: newId,
-    text: req.body.message,
-    user: req.body.name,
-    added: new Date(),
-  });
+  // ✅ server-side validation
+  if (!name || !message) {
+    return res.status(400).send("All fields required");
+  }
+
+  await db.insertMessage(name.trim(), message.trim());
   res.redirect("/");
 });
 
