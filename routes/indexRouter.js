@@ -10,9 +10,9 @@ indexRouter.get("/", async (req, res) => {
 });
 
 // To open a new page with message details :
-indexRouter.get("/messages/:id", (req, res) => {
+indexRouter.get("/messages/:id", async (req, res) => {
   const messageId = parseInt(req.params.id);
-  const message = messages.find((m) => m.id === messageId);
+  const message = await db.getMessageById(messageId);
 
   if (!message) {
     return res.status(404).send("Message not found");
