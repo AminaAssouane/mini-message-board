@@ -2,15 +2,11 @@
   <fieldset>
     <legend>New Message</legend>
 
+    <%- include("partials/errors.ejs") %>
+
     <div>
       <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Your name"
-        required
-      />
+      <input type="text" id="name" name="name" placeholder="Your name" />
     </div>
 
     <div>
@@ -20,7 +16,6 @@
         name="message"
         placeholder="Write your message..."
         rows="4"
-        required
       ></textarea>
     </div>
 
