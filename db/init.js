@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Client } = require("pg");
 
 const createTable = `CREATE TABLE IF NOT EXISTS messages (
@@ -13,7 +14,10 @@ const createData = `INSERT INTO messages (user_name, text) VALUES
 
 async function main() {
   const client = new Client({
-    connectionString: "postgresql://aminaassouane:null@localhost:5432/messages",
+    connectionString: process.env.DB_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
   try {
     await client.connect();
